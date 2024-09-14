@@ -6,6 +6,21 @@ import 'dart:js_util';
 
 import 'package:js/js.dart';
 
+@JS('esri')
+class WebMap {
+  external WebMap(Portalitem portalItem);
+
+  //external Portalitem get portalItem;
+}
+
+@JS()
+@anonymous
+class Portalitem {
+  external factory Portalitem({required String id});
+
+  external String get id;
+}
+
 @JS()
 external _showAlert(String message);
 
@@ -25,6 +40,10 @@ external _getSomeAsyncData();
 external _shareImage(String url, String filename);
 
 class JsInteropService {
+  getWebMap(Portalitem) {
+    return WebMap(Portalitem);
+  }
+
   showAlert(String message) {
     _showAlert(message);
   }

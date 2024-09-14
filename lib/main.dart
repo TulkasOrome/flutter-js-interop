@@ -7,6 +7,9 @@ void main() {
 
 final jsIteropService = JsInteropService();
 
+
+
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -29,6 +32,12 @@ class MyApp extends StatelessWidget {
             spacing: 8,
             runSpacing: 8,
             children: [
+              ElevatedButton(
+                onPressed: () {
+                  jsIteropService.getWebMap(new Portalitem(id: "e691172598f04ea8881cd2a4adaa45ba"));             
+                     },
+                child: const Text("get Webmap"),
+              ),
               ElevatedButton(
                 onPressed: () {
                   jsIteropService.showAlert("Hello, world!!!!");
@@ -61,7 +70,9 @@ class MyApp extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  jsIteropService.shareImage("https://www.theyoungastronauts.com/images/logo.png", "ya.jpg");
+                  jsIteropService.shareImage(
+                      "https://www.theyoungastronauts.com/images/logo.png",
+                      "ya.jpg");
                 },
                 child: const Text("Share Image"),
               )
